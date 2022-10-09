@@ -15,13 +15,16 @@
 </head>
 
 <body>
-    <h1>FIT3179 Week 9 Homework</h1>
+    <h1>FIT3179 Week 10 Homework</h1>
     <div id="map_vis"></div>
     <script>
         var vg_1 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_proportional_symbols_map.json";
         vegaEmbed("#map_vis", vg_1).then(function(result) {
         }).catch(console.error);
-        
+    </script>
+    
+    <div id="player_wins_vis"></div>
+    <script>        
         var vg_2 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_player_wins_line_graph.json";
         vegaEmbed("#player_wins_vis", vg_2).then(function(result) {
         }).catch(console.error);
