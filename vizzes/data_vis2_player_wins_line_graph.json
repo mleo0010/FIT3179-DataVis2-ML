@@ -12,6 +12,7 @@
   "params": [
     {
       "name": "Tourney_level_selection",
+      "value": "Total",
       "bind": {
         "input": "select",
         "options": ["Total", "Grand", "Masters", "Tour", "Other"],
@@ -28,7 +29,7 @@
   ],
   "transform": [
     {
-      "filter": "datum.tourney_level == 'Total' || datum.tourney_level == Tourney_level_selection"
+      "filter": "datum.tourney_level == Tourney_level_selection"
     },
     {"calculate": "datum.winner_name", "as": "Player Name"}
   ],
