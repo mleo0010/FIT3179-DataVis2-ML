@@ -4,6 +4,17 @@
   "height": 450,
   "title": "The number of Association of Tennis Professional final match wins and overall match win rate of each country",
   "projection": {"type": "equirectangular"},
+  "params": [
+      {"name": "year_selection",
+      "value": 2020,
+      "bind": {
+          "input": "range",
+          "min": 1969,
+          "max": 2021,
+          "step": 1,
+          "name": "Year: "
+      }}
+  ],
   "layer": [
     {
       "data": {
@@ -28,9 +39,10 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/country_clean_data.csv"
+        "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/country_wins_years_data.csv"
       },
-      "transform": [{"filter": {"not": {"field": "latitude", "equal": "NA"}}}],
+      "transform": [{"filter": {"not": {"field": "latitude", "equal": "NA"}}},
+      {"filter": "datum.year == year_selection"}],
       "mark": {"type": "circle"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
@@ -45,15 +57,16 @@
           {
             "field": "win_rate",
             "type": "quantitative",
-            "title": "Overall win rate (%)"
+            "title": "Overall win rate (%)",
+            "format": ".2f"
           }
         ],
         "size": {
           "field": "wins",
           "type": "quantitative",
           "title": "Association of Tennis Professional finals wins",
-          "scale": {"domain": [-10, 300]},
-          "legend": {"titleLimit": 300}
+          "scale": {"domain": [-1, 5]},
+          "legend": {"titleLimit": 56}
         },
         "color": {
           "field": "win_rate",
