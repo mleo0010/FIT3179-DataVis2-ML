@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/finals_tennis_data_complete.csv"
+  },
+  "spacing": 15,
+  "bounds": "flush",
+  "vconcat": [
+    {
+      "mark": "bar",
+      "height": 100,
+      "width": 250,
+      "encoding": {
+        "x": {"bin": true, "field": "winner_age", "axis": null},
+        "y": {
+          "aggregate": "count",
+          "scale": {"domain": [0, 2000]},
+          "title": ""
+        },
+        "tooltip": [
+          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+        ]
+      }
+    },
+    {
+      "spacing": 15,
+      "bounds": "flush",
+      "hconcat": [
+        {
+          "height": 250,
+          "width": 250,
+          "mark": "rect",
+          "encoding": {
+            "x": {"bin": true, "field": "winner_age", "title": "Age"},
+            "y": {"bin": true, "field": "winner_ht", "title": "Height"},
+            "color": {"aggregate": "count"},
+            "tooltip": [
+              {"aggregate": "count", "type": "quantitative", "title": "Count"}
+            ]
+          }
+        },
+        {
+          "mark": "bar",
+          "width": 100,
+          "height": 250,
+          "encoding": {
+            "y": {"bin": true, "field": "winner_ht", "axis": null},
+            "x": {
+              "aggregate": "count",
+              "scale": {"domain": [0, 1500]},
+              "title": ""
+            },
+            "tooltip": [
+              {"aggregate": "count", "type": "quantitative", "title": "Count"}
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}}
+}
