@@ -18,7 +18,7 @@
     <h1>FIT3179 Week 10 Homework</h1>
     <div id="map_vis"></div>
     <div id="player_wins_graph"></div>
-    <div id="top3_heatmap"></div>
+    <div id="marginal_histogram"></div>
     <script>
         var vg_1 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_proportional_symbols_map.json";
         vegaEmbed("#map_vis", vg_1).then(function(result) {
@@ -26,8 +26,8 @@
         var vg_2 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_player_wins_line_graph.json";
         vegaEmbed("#player_wins_graph", vg_2).then(function(result) {
         }).catch(console.error);
-        var vg_3 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_top_3_heatmap.json";
-        vegaEmbed("#top3_heatmap", vg_3).then(function(result) {
+        var vg_3 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_marginal_histogram.json";
+        vegaEmbed("#marginal_histogram", vg_3).then(function(result) {
         }).catch(console.error);
     </script>
 
