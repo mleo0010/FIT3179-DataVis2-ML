@@ -19,6 +19,9 @@
     <div id="map_vis"></div>
     <div id="player_wins_graph"></div>
     <div id="marginal_histogram"></div>
+    <div id="handedness_pie"></div>
+    <div id="marginal_histogram"></div>
+    <div id="players_concat"></div>
     <script>
         var vg_1 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_proportional_symbols_map.json";
         vegaEmbed("#map_vis", vg_1).then(function(result) {
@@ -28,6 +31,12 @@
         }).catch(console.error);
         var vg_3 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_marginal_histogram.json";
         vegaEmbed("#marginal_histogram", vg_3).then(function(result) {
+        }).catch(console.error);
+        var vg_4 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_handedness_pie.json";
+        vegaEmbed("#handedness_pie", vg_4).then(function(result) {
+        }).catch(console.error);
+        var vg_5 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_best_players_concatted.json";
+        vegaEmbed("#players_concat", vg_5).then(function(result) {
         }).catch(console.error);
     </script>
 
