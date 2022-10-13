@@ -98,11 +98,7 @@
           "field": "Name",
           "type": "nominal",
           "legend": {"labelFontSize": 12, "titleFontSize": 14, "orient": "bottom", "format": {"sort": "-x"}}
-        },
-        "tooltip": [
-          {"field": "Name", "type": "nominal"},
-          {"field": "Wins", "type": "quantitative"}
-        ]
+        }
       }
     },
     {
@@ -175,12 +171,7 @@
           "type": "quantitative",
           "axis": {"labelFontSize": 12, "titleFontSize": 14},
           "title": "Wins"
-        },
-        "tooltip": [
-          {"field": "Player Name", "type": "nominal"},
-          {"field": "year", "title": "Year", "timeUnit": "year"},
-          {"field": "Wins", "type": "quantitative", "format": ","}
-        ]
+        }
       }
     },
     {
