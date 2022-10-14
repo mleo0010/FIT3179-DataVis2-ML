@@ -18,7 +18,7 @@
           "title": ""
         },
         "tooltip": [
-          {"aggregate": "count", "type": "quantitative", "title": "Count"}
+          {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall in this age range"}
         ]
       }
     },
@@ -32,10 +32,12 @@
           "mark": "rect",
           "encoding": {
             "x": {"bin": true, "field": "winner_age", "title": "Age"},
-            "y": {"bin": true, "field": "winner_ht", "title": "Height"},
-            "color": {"aggregate": "count"},
+            "y": {"bin": true, "field": "winner_ht", "title": "Height (cm)"},
+            "color": {"aggregate": "count", "legend": {"title": ["Number of people within that", "age and height range"]}},
             "tooltip": [
-              {"aggregate": "count", "type": "quantitative", "title": "Count"}
+              {"bin": true, "field": "winner_age", "title": "Age range"},
+              {"field": "winner_ht", "bin":true, "title": "Height range (cm)"},
+              {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall within both ranges"}
             ]
           }
         },
@@ -51,7 +53,7 @@
               "title": ""
             },
             "tooltip": [
-              {"aggregate": "count", "type": "quantitative", "title": "Count"}
+              {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall in this height range"}
             ]
           }
         }
