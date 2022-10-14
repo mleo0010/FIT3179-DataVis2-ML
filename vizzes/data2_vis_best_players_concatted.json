@@ -80,9 +80,10 @@
       "transform": [{"calculate": "-6", "as": "xAxis"}],
       "mark": {
         "type": "image", 
-        "width":60, 
-        "height": 60, 
-        "align": "right"},
+        "width":63, 
+        "height": 63, 
+        "align": "right",
+        "xOffset": 10},
       "encoding": {
         "x": {
           "field": "xAxis",
