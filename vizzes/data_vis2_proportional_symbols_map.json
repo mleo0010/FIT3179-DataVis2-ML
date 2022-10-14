@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 900,
+  "width": 800,
   "height": 450,
   "title": "The number of Association of Tennis Professional final match wins and overall match win rate of each country",
   "projection": {"type": "equirectangular"},
@@ -49,10 +49,11 @@
         "latitude": {"field": "latitude", "type": "quantitative"},
         "tooltip": [
           {"field": "country_name", "type": "nominal", "title": "Country"},
+          {"field": "year", "title": "Year"},
           {
             "field": "wins",
             "type": "quantitative",
-            "title": "No. of ATP finals wins"
+            "title": "Number of ATP wins"
           },
           {
             "field": "win_rate",
@@ -64,15 +65,14 @@
         "size": {
           "field": "wins",
           "type": "quantitative",
-          "title": "Association of Tennis Professional finals wins",
-          "scale": {"domain": [-1, 5]},
-          "legend": {"titleLimit": 56}
+          "title": ["Association of Tennis", "Professionals (ATP) wins"],
+          "scale": {"domain": [-1, 5]}
         },
         "color": {
           "field": "win_rate",
           "type": "quantitative",
           "title": "Win rate of all matches (%)",
-          "scale": {"domain": [40, 60], "scheme": "redblue"}
+          "scale": {"scheme": "redblue"}
         },
         "fillOpacity": {"value": 1}
       }
