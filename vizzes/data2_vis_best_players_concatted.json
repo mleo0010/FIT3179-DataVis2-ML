@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/best_players_wins.csv"
+    "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/best_players_img_data.csv"
   },
   "params": [
     {
@@ -19,22 +19,7 @@
         ],
         "name": "Tourney Level: "
       }
-    },
-    {"name": "Player_selection",
-    "value": "Rafael Nadal",
-    "bind": {
-      "input": "select",
-      "options": ["Jimmy Connors", "Roger Federer", "Ivan Lendl", "Rafael Nadal", "Novak Djokovic"],
-      "labels": ["Jimmy Connors", "Roger Federer", "Ivan Lendl", "Rafael Nadal", "Novak Djokovic"],
-      "name": "Player: "
-    }}
-  ],
-  "transform": [
-    {
-      "filter": "datum.tourney_level == Tourney_level_selection"
-    },
-    {"filter": "datum.winner_name == Player_selection"},
-    {"calculate": "datum.winner_name", "as": "Player Name"}
+    }
   ],
   "hconcat": [
     {
@@ -44,49 +29,33 @@
         "text": "Who are the top 5 best tennis players of all time?",
         "fontSize": 18
       },
-  "data": {
-    "values": [
-      {
-        "Name": "Jimmy Connors",
-        "Wins": 110,
-        "img": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/images/Jimmy%20Connors.jpeg"
-      },
-      {
-        "Name": "Roger Federer",
-        "Wins": 103,
-        "img": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/images/Roger%20Federer.jpeg"
-      },
-      {
-        "Name": "Ivan Lendl",
-        "Wins": 95,
-        "img": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/images/Ivan%20Lendl.jpeg"
-      },
-      {
-        "Name": "Rafael Nadal",
-        "Wins": 87,
-        "img": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/images/Rafael%20Nadal.jpeg"
-      },
-      {
-        "Name": "Novak Djokovic",
-        "Wins": 83,
-        "img": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/images/Novak%20Djokovic.png"
-      }
-    ]
-  },
+      "transform": [
+        {"filter": "datum.tourney_level == 'Total'"},
+        {"aggregate": [{
+       "op": "sum",
+       "field": "Wins",
+       "as": "Total Wins"
+      }],
+      "groupby": ["winner_name", "img"]}
+      ],
   "layer": [
     {
+      "params": [
+        {"name": "Name_select",
+        "select": {"type": "point", "encodings": ["y"]}}
+      ],
       "mark": {"type": "bar"},
       "encoding": {
         "x": {
-          "field": "Wins",
+          "field": "Total Wins",
           "type": "quantitative",
           "axis": {"labelFontSize": 12, "titleFontSize": 14}
         },
         "y": {
-          "field": "Name",
+          "field": "winner_name",
           "type": "nominal",
           "axis": null,
-          "sort": [
+          "sort":[
             "Jimmy Connors",
             "Roger Federer",
             "Ivan Lendl",
@@ -95,28 +64,35 @@
           ]
         },
         "color": {
-          "field": "Name",
-          "type": "nominal",
-          "legend": {"labelFontSize": 12, "titleFontSize": 14, "orient": "bottom", "format": {"sort": "-x"}}
+          "field": "winner_name",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {"param": "Name_select", "value": 1}, "value": 0.2
         },
         "tooltip": [
-          {"field": "Name", "type": "nominal"},
-          {"field": "Wins", "type": "quantitative"}
+          {"field": "winner_name", "type": "nominal", "title": "Player Name"},
+          {"field": "Total Wins", "type": "quantitative"}
         ]
       }
     },
     {
       "transform": [{"calculate": "-6", "as": "xAxis"}],
-      "mark": {"type": "image", "width": 50, "height": 50},
+      "mark": {
+        "type": "image", 
+        "width":60, 
+        "height": 60, 
+        "align": "right"},
       "encoding": {
         "x": {
           "field": "xAxis",
           "type": "quantitative",
-          "title": "Wins",
-          "scale": {"domain": [0, 120]}
+          "title": "Total Wins",
+          "scale": {"domain": [0, 120]},
+          "axis": null
         },
         "y": {
-          "field": "Name",
+          "field": "winner_name",
           "type": "nominal",
           "sort": [
             "Jimmy Connors",
@@ -127,18 +103,18 @@
           ]
         },
         "tooltip": [
-          {"field": "Name", "type": "nominal"},
-          {"field": "Wins", "type": "quantitative"}
+          {"field": "winner_name", "type": "nominal", "title": "Player Name"},
+          {"field": "Total Wins", "type": "quantitative"}
         ],
         "url": {"field": "img", "type": "ordinal"}
       }
     },
     {
-      "mark": {"type": "text", "align": "right", "xOffset": -4, "aria": false},
+      "mark": {"type": "text", "align": "right", "xOffset": -4, "fontSize": 12, "aria": false},
       "encoding": {
-        "x": {"field": "Wins", "type": "quantitative"},
+        "x": {"field": "Total Wins", "type": "quantitative", "axis": null},
         "y": {
-          "field": "Name",
+          "field": "winner_name",
           "type": "nominal",
           "sort": [
             "Jimmy Connors",
@@ -148,7 +124,28 @@
             "Novak Djokovic"
           ]
         },
-        "text": {"field": "Wins", "type": "quantitative"},
+        "text": {"field": "Total Wins", "type": "quantitative"},
+        "color": {"value": "white"}
+      }
+    },
+    {"transform":[
+      {"calculate": "0", "as": "Zero"}
+    ],
+      "mark": {"type": "text", "align": "left", "aria": false, "xOffset": -190, "fontSize": 13},
+      "encoding": {
+        "x": {"field": "Zero", "axis": null},
+        "y": {
+          "field": "winner_name",
+          "type": "nominal",
+          "sort": [
+            "Jimmy Connors",
+            "Roger Federer",
+            "Ivan Lendl",
+            "Rafael Nadal",
+            "Novak Djokovic"
+          ]
+        },
+        "text": {"field": "winner_name", "type": "nominal"},
         "color": {"value": "white"}
       }
     }
@@ -160,9 +157,18 @@
     "text": "How many wins have the top 5 players of all time won over the years?",
     "fontSize": 16
   },
+    "data": {
+    "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/best_players_wins.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.tourney_level == Tourney_level_selection"
+    },
+    {"filter": {"param": "Name_select"}}
+  ],
   "layer": [
     {
-      "mark": "line",
+      "mark": {"type": "line", "yOffset": 3},
       "encoding": {
         "x": {
           "field": "year",
@@ -173,11 +179,12 @@
         "y": {
           "field": "Wins",
           "type": "quantitative",
-          "axis": {"labelFontSize": 12, "titleFontSize": 14},
+          "axis": {"labelFontSize": 12, "titleFontSize": 14, "tickExtra": true},
           "title": "Wins"
         },
+         "color": {"field": "winner_name", "type": "nominal", "legend": null, "scale": {"range": ["#f5ad42", "#468acf", "#de789d", "#20c9ad", "#c2a3e6"]}},
         "tooltip": [
-          {"field": "Player Name", "type": "nominal"},
+          {"field": "winner_name", "type": "nominal", "title": "Player Name"},
           {"field": "year", "title": "Year", "timeUnit": "year"},
           {"field": "Wins", "type": "quantitative", "format": ","}
         ]
@@ -187,21 +194,22 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "baseline": "middle",
+        "baseline": "top",
         "xOffset": -6,
-        "yOffset": -17,
+        "yOffset": -15,
         "fontSize": 12
       },
       "encoding": {
-        "x": {"field": "year", "timeUnit": "year"},
-        "y": {"field": "Wins", "type": "quantitative"},
-        "text": {"field": "Wins", "type": "nominal"},
+        "x": {"field": "year", "timeUnit": "year", "axis": {"grid": false, "gridOpacity": 0.5}},
+        "y": {"field": "Wins", "type": "quantitative", "axis": {"tickExtra": true}},
+        "text": {"field": "Wins", "type": "nominal", "format": {"yOffset": 10}},
+        "color": {"field": "winner_name", "type": "nominal"},
         "opacity": {
-          "condition": {"test": "datum['Wins'] >= 10", "value": 1},
+          "condition": {"test": "datum['Wins'] >= 11", "value": 1},
           "value": 0
         },
         "tooltip": [
-          {"field": "Player Name", "type": "nominal"},
+          {"field": "winner_name", "type": "nominal", "title": "Player Name"},
           {"field": "year", "title": "Year", "timeUnit": "year"},
           {"field": "Wins", "type": "quantitative"}
         ]
@@ -210,5 +218,7 @@
   ]
   }
   ],
-  "config": {}
+  "config": {
+    "padding": {"top": 10}
+  }
 }
