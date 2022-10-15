@@ -24,7 +24,7 @@
   "hconcat": [
     {
       "height": 350,
-      "width": 400,
+      "width": 350,
       "title": {
         "text": "Who are the top 5 best tennis players of all time?",
         "fontSize": 18
@@ -132,7 +132,7 @@
     {"transform":[
       {"calculate": "0", "as": "Zero"}
     ],
-      "mark": {"type": "text", "align": "left", "aria": false, "xOffset": -190, "fontSize": 13},
+      "mark": {"type": "text", "align": "left", "aria": false, "xOffset": -160, "fontSize": 13},
       "encoding": {
         "x": {"field": "Zero", "axis": null},
         "y": {
@@ -152,8 +152,8 @@
     }
   ]},
   {
-  "width": 600,
-  "height": 450,
+  "width": 550,
+  "height": 400,
   "title": {
     "text": "How many wins have the top 5 players of all time won over the years?",
     "fontSize": 16
@@ -181,6 +181,7 @@
           "field": "Wins",
           "type": "quantitative",
           "axis": {"labelFontSize": 12, "titleFontSize": 14, "tickExtra": true},
+          "scale": {"domainMax": 16},
           "title": "Wins"
         },
          "color": {"field": "winner_name", "type": "nominal", "legend": null, "scale": {"range": ["#f5ad42", "#468acf", "#de789d", "#20c9ad", "#c2a3e6"]}},
