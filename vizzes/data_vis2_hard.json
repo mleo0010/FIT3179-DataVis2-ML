@@ -1,38 +1,176 @@
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 150,
-  "height": 150,
-  "config": {"view": {"stroke": null}},
-  "title": {"text": "Hard", "fontSize": 14},
-  "data": {
-    "values": [
-      {"Surface": "Hard", "Percentage": "0.3904"},
-      {"Surface": "Other", "Percentage": "0.6096"}
-    ]
-  },
-  "layer": [
-    {"mark": {"type": "arc", "innerRadius": 50}},
-    {
-      "mark": {"type": "text", "text": "39.04%", "fontSize": 25},
-      "encoding": {"color": {"value": "black"}}
-    }
-  ],
-  "encoding": {
-    "theta": {"field": "Percentage", "type": "quantitative"},
-    "color": {
-      "field": "Surface",
-      "type": "nominal",
-      "legend": null,
-      "scale": {"domain": ["Hard", "Other"], "range": ["#2656b5", "#95A5A6"]}
-    },
-    "tooltip": [
-      {"field": "Surface", "type": "nominal"},
-      {
-        "field": "Percentage",
-        "type": "quantitative",
-        "title": "Percentage of games played on this surface",
-        "format": ".2%"
-      }
-    ]
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Tennis: What Makes a Winner?</title>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
+    
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+    
+</head>
+
+<body>
+   
+   <div class="page">
+    
+    <!-- title and intro -->
+    <div class="title_intro">
+        <div>
+            <h1>Tennis: What Makes a Winner?</h1>
+            <p>Introduction paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+    </div>
+    <!-- end of title and intro -->
+    
+    <!-- section 1: map -->
+    <div class="section1 all_sections">
+        <h2>How many finals does each country win each year?</h2>
+        <div class="vis">
+            <div id="map_vis"></div>
+        </div>
+    </div>
+    <!-- end of section 1 -->
+    
+    <!-- section 2.1: characteristics -->  
+    <h2 class="subheader">What common characteristics do winners share?</h2> 
+    <div class="pure-g">
+        <!-- text para -->
+        <div class="pure-u-1-2 text">
+            <p class="container-left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+        <!-- vis 2 -->
+        <div class="pure-u-1-2">
+            <div id="marginal_histogram" class="container-right"></div>
+        </div>
+    <div>
+    <!-- end of section 2 pt 1-->
+    
+    <!-- section 2.2: handedness -->
+    <div class="pure-g">
+        <!-- vis 3 -->
+        <div class="pure-u-1-2">
+            <div id="handedness_pie" class="container-left"></div>
+        </div>
+        <!-- text para -->
+        <div class="pure-u-1-2 text">
+            <p class="container-right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+    </div>
+    <!-- end of section 2 pt 2-->
+
+    <!-- section 3: surface-->
+    <div class="pure-g">
+      <h2 class="subheader pure-u">Does surface matter?</h2>
+    </div>
+    
+    <div class="pure-g">
+      <table class="pure-u">
+        <tr>
+          <td>
+            <div id="grass"></div>
+          </td>
+          <td>
+            <div id="carpet"></div>
+          </td>
+          <td>
+            <div id="clay"></div>
+          </td>
+          <td>
+            <div id="hard"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- end of section 3-->
+    
+    <!-- section 4.1: top players text -->
+    <div class="pure-g">
+      <h2 class="subheader pure-u">Who are the top tennis champions of all time?</h2>
+    </div>
+    <div class="pure-g">    
+        <div class="pure-u-1-2 text">
+            <p class="container-left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+        <div class="pure-u-1-2 text">
+            <p class="container-right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+    </div>
+    <!-- end of section 4.1 -->
+    
+    <!-- section 4.2: top players vizzes -->
+    <div>
+        <div class="pure-g">
+            <div class="pure-u" id="players_concat"></div>
+        </div>
+    </div>
+    <!-- end of section 4.1 -->
+   
+   </div> <!-- end page -->
+    
+    <script type="text/javascript">
+        var vg_1 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_proportional_symbols_map.json";
+        vegaEmbed("#map_vis", vg_1).then(function(result) {
+        }).catch(console.error);
+        
+        var vg_2 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_player_wins_line_graph.json";
+        vegaEmbed("#player_wins_graph", vg_2).then(function(result) {
+        }).catch(console.error);
+        
+        var vg_3 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_marginal_histogram.json";
+        vegaEmbed("#marginal_histogram", vg_3).then(function(result) {
+        }).catch(console.error);
+        
+        var vg_4 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_handedness_pie.json";
+        vegaEmbed("#handedness_pie", vg_4).then(function(result) {
+        }).catch(console.error);
+        
+        var vg_5 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data2_vis_best_players_concatted.json";
+        vegaEmbed("#players_concat", vg_5).then(function(result) {
+        }).catch(console.error);
+
+        var vg_6 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_grass.json";
+        vegaEmbed("#grass", vg_6).then(function(result) {
+        }).catch(console.error);
+
+        var vg_7 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_carpet.json";
+        vegaEmbed("#carpet", vg_7).then(function(result) {
+        }).catch(console.error);
+
+        var vg_8 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_clay.json";
+        vegaEmbed("#clay", vg_8).then(function(result) {
+        }).catch(console.error);
+
+        var vg_9 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_hard.json";
+        vegaEmbed("#hard", vg_9).then(function(result) {
+        }).catch(console.error);
+    </script>
+    
+</body>
+
+</html>
