@@ -3,15 +3,18 @@
 
 
 <head>
+    <title>Tennis: What Makes a Winner?</title>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+    <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
 
-    <title>Tennis: What Makes a Winner?</title>
+    
 </head>
 
 <body>
@@ -24,25 +27,28 @@
     <h2>Who are the top tennis champions of all time?</h2>
     <div id="players_concat"></div>
     
-    <script>
+    <script type="text/javascript">
         var vg_1 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_proportional_symbols_map.json";
         vegaEmbed("#map_vis", vg_1).then(function(result) {
         }).catch(console.error);
+        
         var vg_2 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_player_wins_line_graph.json";
         vegaEmbed("#player_wins_graph", vg_2).then(function(result) {
         }).catch(console.error);
+        
         var vg_3 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_marginal_histogram.json";
         vegaEmbed("#marginal_histogram", vg_3).then(function(result) {
         }).catch(console.error);
+        
         var vg_4 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_handedness_pie.json";
         vegaEmbed("#handedness_pie", vg_4).then(function(result) {
         }).catch(console.error);
+        
         var vg_5 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data2_vis_best_players_concatted.json";
         vegaEmbed("#players_concat", vg_5).then(function(result) {
         }).catch(console.error);
     </script>
-
-
+    
 </body>
 
 </html>
