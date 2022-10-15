@@ -19,7 +19,7 @@ body {
 }
 
 .vis {
-    width: 100%;
+    width: "container";
 }
 
 .description h2,
