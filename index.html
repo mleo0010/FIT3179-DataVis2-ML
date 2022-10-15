@@ -79,9 +79,36 @@
         </div>
     </div>
     <!-- end of section 2 pt 2-->
+
+    <!-- section 3: surface-->
+    <div class="pure-g">
+      <h2 class="subheader pure-u">Does surface matter?</h2>
+    </div>
+    
+    <div class="pure-g">
+      <table class="pure-u">
+        <tr>
+          <td>
+            <div id="grass"></div>
+          </td>
+          <td>
+            <div id="carpet"></div>
+          </td>
+          <td>
+            <div id="clay"></div>
+          </td>
+          <td>
+            <div id="hard"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- end of section 3-->
     
     <!-- section 4.1: top players text -->
-    <h2 class="subheader">Who are the top tennis champions of all time?</h2>
+    <div class="pure-g">
+      <h2 class="subheader pure-u">Who are the top tennis champions of all time?</h2>
+    </div>
     <div class="pure-g">    
         <div class="pure-u-1-2 text">
             <p class="container-left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -125,6 +152,22 @@
         
         var vg_5 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data2_vis_best_players_concatted.json";
         vegaEmbed("#players_concat", vg_5).then(function(result) {
+        }).catch(console.error);
+
+        var vg_6 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_grass.json";
+        vegaEmbed("#grass", vg_6).then(function(result) {
+        }).catch(console.error);
+
+        var vg_7 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_carpet.json";
+        vegaEmbed("#carpet", vg_7).then(function(result) {
+        }).catch(console.error);
+
+        var vg_8 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_clay.json";
+        vegaEmbed("#clay", vg_8).then(function(result) {
+        }).catch(console.error);
+
+        var vg_9 = "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/vizzes/data_vis2_hard.json";
+        vegaEmbed("#hard", vg_9).then(function(result) {
         }).catch(console.error);
     </script>
     
