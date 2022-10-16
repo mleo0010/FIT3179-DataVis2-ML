@@ -1,8 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "Are most winners left- or right-handed?", "fontSize": 16},
-  "width": 300,
-  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/tennis_handedness_data.csv"
   },
@@ -26,7 +23,15 @@
     "theta": {"field": "Percentage", "type": "quantitative", "stack": true}
   },
   "layer": [
-    {"mark": {"type": "arc", "outerRadius": 100}, "encoding": {"tooltip": [{"field": "winner_hand", "type": "nominal", "title": "Hand"}, {"field": "Percentage", "format": ".2%"}]}},
+    {
+      "mark": {"type": "arc", "outerRadius": 100},
+      "encoding": {
+        "tooltip": [
+          {"field": "winner_hand", "type": "nominal", "title": "Hand"},
+          {"field": "Percentage", "format": ".2%"}
+        ]
+      }
+    },
     {
       "mark": {"type": "text", "radius": 130, "fontSize": 12},
       "encoding": {
