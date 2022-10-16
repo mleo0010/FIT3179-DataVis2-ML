@@ -3,7 +3,7 @@
   "width": 800,
   "height": 450,
   "title": "The number of Association of Tennis Professional final match wins and overall match win rate of each country",
-  "projection": {"type": "equirectangular"},
+  "projection": {"type": "equalEarth"},
   "params": [
       {"name": "year_selection",
       "value": 2020,
