@@ -22,6 +22,11 @@
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
+    <!-- Stylesheet for typefaces -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
     
 </head>
 
@@ -29,37 +34,54 @@
    
    <div class="page">
     
-    <!-- title and intro -->
-    <div class="title_intro">
-        <div>
-            <h1>Tennis: What Makes a Winner?</h1>
-            <p>Introduction paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
-        </div>
+    <!-- title -->
+    <div class="pure-g title">
+      <div class="pure-u">
+        <h1>TENNIS: WHAT MAKES A WINNER?</h1>
+      </div>
+    </div>
+
+    <!-- intro -->
+    <div class="pure-g">
+      <!-- text para 1 -->
+      <div class="pure-u-1-2">
+        <p class="container-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+      </div>
+      <!-- text para 2 -->
+      <div class="pure-u-1-2">
+        <p class="container-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+      </div>
     </div>
     <!-- end of title and intro -->
     
     <!-- section 1: map -->
-    <div class="section1 all_sections">
-        <h2>How many finals does each country win each year?</h2>
-        <div class="vis">
-            <div id="map_vis"></div>
+    <div class="pure-g section-heading">
+      <h2 class=" pure-u">How many finals does each country win each year?</h2>
+    </div>
+    <div class="pure-g vis">
+        <div class="pure-u">
+            <div id="map_vis" class="container-full"></div>
         </div>
     </div>
     <!-- end of section 1 -->
     
     <!-- section 2.1: characteristics -->  
-    <h2 class="subheader">What common characteristics do winners share?</h2> 
+    <div class="pure-g section-heading">
+      <h2 class="pure-u">What common characteristics do winners share?</h2>
+    </div>
     <div class="pure-g">
         <!-- text para -->
-        <div class="pure-u-1-2 text">
+        <div class="pure-u-1-2">
             <p class="container-left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
         </div>
         <!-- vis 2 -->
-        <div class="pure-u-1-2">
+        <div class="pure-u-1-2 vis">
             <div id="marginal_histogram" class="container-right"></div>
         </div>
     <div>
@@ -68,11 +90,11 @@
     <!-- section 2.2: handedness -->
     <div class="pure-g">
         <!-- vis 3 -->
-        <div class="pure-u-1-2">
+        <div class="pure-u-1-2 vis">
             <div id="handedness_pie" class="container-left"></div>
         </div>
         <!-- text para -->
-        <div class="pure-u-1-2 text">
+        <div class="pure-u-1-2">
             <p class="container-right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
@@ -81,12 +103,12 @@
     <!-- end of section 2 pt 2-->
 
     <!-- section 3: surface-->
-    <div class="pure-g">
-      <h2 class="subheader pure-u">Does surface matter?</h2>
+    <div class="pure-g section-heading">
+      <h2 class="pure-u">Does surface matter?</h2>
     </div>
     
-    <div class="pure-g">
-      <table class="pure-u">
+    <div class="pure-g vis">
+      <table class="pure-u container-full">
         <tr>
           <td>
             <div id="grass"></div>
@@ -106,16 +128,16 @@
     <!-- end of section 3-->
     
     <!-- section 4.1: top players text -->
-    <div class="pure-g">
-      <h2 class="subheader pure-u">Who are the top tennis champions of all time?</h2>
+    <div class="pure-g section-heading">
+      <h2 class="pure-u">Who are the top tennis champions of all time?</h2>
     </div>
     <div class="pure-g">    
-        <div class="pure-u-1-2 text">
+        <div class="pure-u-1-2">
             <p class="container-left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
         </div>
-        <div class="pure-u-1-2 text">
+        <div class="pure-u-1-2">
             <p class="container-right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
@@ -125,8 +147,8 @@
     
     <!-- section 4.2: top players vizzes -->
     <div>
-        <div class="pure-g">
-            <div class="pure-u" id="players_concat"></div>
+        <div class="pure-g vis">
+            <div id="players_concat" class="pure-u container-full"></div>
         </div>
     </div>
     <!-- end of section 4.1 -->
