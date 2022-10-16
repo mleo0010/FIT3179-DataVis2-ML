@@ -66,13 +66,15 @@
           "field": "wins",
           "type": "quantitative",
           "title": ["Association of Tennis", "Professionals (ATP) wins"],
-          "scale": {"domain": [-1, 5]}
+          "scale": {"domain": [-1, 5]},
+          "legend": {"orient": "bottom", "direction": "horizontal", "padding": 10}
         },
         "color": {
           "field": "win_rate",
           "type": "quantitative",
           "title": "Win rate of all matches (%)",
-          "scale": {"scheme": "redblue"}
+          "scale": {"scheme": "redblue"},
+          "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 550, "padding": 10}
         },
         "fillOpacity": {"value": 1}
       }
