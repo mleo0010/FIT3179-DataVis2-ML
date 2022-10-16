@@ -42,9 +42,9 @@
               "aggregate": "count",
               "legend": {
                 "title": [
-                  "Number of people",
+                  "No. of players",
                   "within the age",
-                  "and height ranges"
+                  "and height range"
                 ]
               }
             },
@@ -83,7 +83,5 @@
       ]
     }
   ],
-  "config": {
-    "view": {"stroke": "transparent"},
-    "background": "#fffcf9"}
+  "config": {"view": {"stroke": "transparent"}, "background": "#fffcf9"}
 }
