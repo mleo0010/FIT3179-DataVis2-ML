@@ -56,7 +56,7 @@
           {
             "field": "wins",
             "type": "quantitative",
-            "title": "Number of ATP wins"
+            "title": "Number of tournament wins"
           },
           {
             "field": "win_rate",
@@ -68,7 +68,7 @@
         "size": {
           "field": "wins",
           "type": "quantitative",
-          "title": ["Association of Tennis", "Professionals (ATP) wins"],
+          "title": ["Number of tournament wins"],
           "scale": {"domain": [-1, 5]},
           "legend": {
             "orient": "bottom",
