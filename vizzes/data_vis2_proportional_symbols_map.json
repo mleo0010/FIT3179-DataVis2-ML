@@ -2,18 +2,19 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 450,
-  "title": "The number of Association of Tennis Professional final match wins and overall match win rate of each country",
   "projection": {"type": "equalEarth"},
   "params": [
-      {"name": "year_selection",
+    {
+      "name": "year_selection",
       "value": 2020,
       "bind": {
-          "input": "range",
-          "min": 1969,
-          "max": 2021,
-          "step": 1,
-          "name": "Year: "
-      }}
+        "input": "range",
+        "min": 1969,
+        "max": 2021,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
   ],
   "layer": [
     {
@@ -41,8 +42,10 @@
       "data": {
         "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/country_wins_years_data.csv"
       },
-      "transform": [{"filter": {"not": {"field": "latitude", "equal": "NA"}}},
-      {"filter": "datum.year == year_selection"}],
+      "transform": [
+        {"filter": {"not": {"field": "latitude", "equal": "NA"}}},
+        {"filter": "datum.year == year_selection"}
+      ],
       "mark": {"type": "circle"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
@@ -67,18 +70,29 @@
           "type": "quantitative",
           "title": ["Association of Tennis", "Professionals (ATP) wins"],
           "scale": {"domain": [-1, 5]},
-          "legend": {"orient": "bottom", "direction": "horizontal", "padding": 10}
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "padding": 10
+          }
         },
         "color": {
           "field": "win_rate",
           "type": "quantitative",
           "title": "Win rate of all matches (%)",
           "scale": {"scheme": "redblue"},
-          "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 550, "padding": 10}
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 550,
+            "padding": 10
+          }
         },
         "fillOpacity": {"value": 1}
       }
     }
   ],
-  "config": {}
+  "config": {
+    "background": "#fffcf9"
+  }
 }
