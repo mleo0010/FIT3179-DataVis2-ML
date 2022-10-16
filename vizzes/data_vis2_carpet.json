@@ -34,5 +34,6 @@
         "format": ".2%"
       }
     ]
-  }
+  },
+  "background": "#fffcf9"
 }
