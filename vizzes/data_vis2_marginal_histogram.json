@@ -19,7 +19,11 @@
         },
         "tooltip": [
           {"field": "winner_age", "bin": true, "title": "Age range"},
-          {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall in this age range"}
+          {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Number of people who fall in this age range"
+          }
         ]
       }
     },
@@ -34,11 +38,24 @@
           "encoding": {
             "x": {"bin": true, "field": "winner_age", "title": "Age"},
             "y": {"bin": true, "field": "winner_ht", "title": "Height (cm)"},
-            "color": {"aggregate": "count", "legend": {"title": ["Number of people", "within the age", "and height ranges"]}},
+            "color": {
+              "aggregate": "count",
+              "legend": {
+                "title": [
+                  "Number of people",
+                  "within the age",
+                  "and height ranges"
+                ]
+              }
+            },
             "tooltip": [
               {"field": "winner_age", "bin": true, "title": "Age range"},
-              {"field": "winner_ht", "bin":true, "title": "Height range (cm)"},
-              {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall within both ranges"}
+              {"field": "winner_ht", "bin": true, "title": "Height range (cm)"},
+              {
+                "aggregate": "count",
+                "type": "quantitative",
+                "title": "Number of people who fall within both ranges"
+              }
             ]
           }
         },
@@ -54,13 +71,19 @@
               "title": ""
             },
             "tooltip": [
-              {"field": "winner_ht", "bin":true, "title": "Height range (cm)"},
-              {"aggregate": "count", "type": "quantitative", "title": "Number of people who fall in this height range"}
+              {"field": "winner_ht", "bin": true, "title": "Height range (cm)"},
+              {
+                "aggregate": "count",
+                "type": "quantitative",
+                "title": "Number of people who fall in this height range"
+              }
             ]
           }
         }
       ]
     }
   ],
-  "config": {"view": {"stroke": "transparent"}}
+  "config": {
+    "view": {"stroke": "transparent"},
+    "background": "#fffcf9"}
 }
