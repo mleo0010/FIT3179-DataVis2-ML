@@ -73,7 +73,9 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "padding": 10
+            "padding": 10,
+            "labelFontSize": 12.5,
+            "titleFontSize": 13.5
           }
         },
         "color": {
@@ -85,7 +87,9 @@
             "orient": "bottom",
             "direction": "horizontal",
             "gradientLength": 550,
-            "padding": 10
+            "padding": 10,
+            "labelFontSize": 12.5,
+            "titleFontSize": 13.5
           }
         },
         "fillOpacity": {"value": 1}
