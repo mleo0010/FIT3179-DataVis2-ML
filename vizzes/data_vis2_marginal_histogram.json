@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/mleo0010/FIT3179-DataVis2-ML/main/data/finals_tennis_data_complete.csv"
   },
-  "spacing": 15,
+  "spacing": 25,
   "bounds": "flush",
   "vconcat": [
     {
@@ -15,7 +15,8 @@
         "y": {
           "aggregate": "count",
           "scale": {"domain": [0, 2000]},
-          "title": ""
+          "title": "",
+          "axis": {"labelFontSize": 11, "titleFontSize": 14}
         },
         "tooltip": [
           {"field": "winner_age", "bin": true, "title": "Age range"},
@@ -28,7 +29,7 @@
       }
     },
     {
-      "spacing": 15,
+      "spacing": 25,
       "bounds": "flush",
       "hconcat": [
         {
@@ -36,8 +37,8 @@
           "width": 250,
           "mark": "rect",
           "encoding": {
-            "x": {"bin": true, "field": "winner_age", "title": "Age"},
-            "y": {"bin": true, "field": "winner_ht", "title": "Height (cm)"},
+            "x": {"bin": true, "field": "winner_age", "title": "Age", "axis": {"labelFontSize": 11, "titleFontSize": 14}},
+            "y": {"bin": true, "field": "winner_ht", "title": "Height (cm)", "axis": {"labelFontSize": 11, "titleFontSize": 14}},
             "color": {
               "aggregate": "count",
               "legend": {
@@ -68,7 +69,8 @@
             "x": {
               "aggregate": "count",
               "scale": {"domain": [0, 1500]},
-              "title": ""
+              "title": "",
+              "axis": {"labelFontSize": 11, "titleFontSize": 14}
             },
             "tooltip": [
               {"field": "winner_ht", "bin": true, "title": "Height range (cm)"},
